@@ -1,0 +1,12 @@
+-------------------DATABASE INFORMATION--------------------
+
+DATASBASE USERNAME = root.
+DATASBASE NAME = backend.
+DATASBASE password = 123.
+DATABASE TABLE = teacher , StudentInfo, Report.
+
+
+matrixno. Sname sec Tname course sem 
+matrixno. Sname sec Tname course sem 
+
+

@@ -1,0 +1,6 @@
+Use Html,css JS
+MVC pattern must be followed, 
+Session management must be done,
+Password must be Hasing,
+Jsp must be used, servlet, 
+

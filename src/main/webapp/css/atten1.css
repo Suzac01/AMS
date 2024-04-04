@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Montserrat:wght@300&display=swap');
+
+
+#next-con img {
+    margin-top: none;
+    margin-right: 2%;
+    width: 4%;
+}
+
+.button {
+    color: white;
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #050231;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    
+
+}
+img {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.button-btn:hover {
+    background-color: #fcfc;
+    color: white;
+}
+
+
+
+

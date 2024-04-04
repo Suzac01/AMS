@@ -1,0 +1,195 @@
+<%@page import="java.io.PrintWriter"%>
+<%@page import="java.sql.*"%>
+<%@page import="com.example.newprojectfinal.ConnectionProvider"%>
+<%@ page import="static java.sql.DriverManager.println" %>
+<%
+    try{
+        String Roll=request.getParameter("Roll");
+        String Class=request.getParameter("Class");
+        Connection con=ConnectionProvider.getConnection();
+        Statement st=con.createStatement();
+        ResultSet rs = st.executeQuery("SELECT * FROM student INNER JOIN result ON student.Roll = result.Roll WHERE student.Roll = '" + Roll + "'");
+
+        if(rs.next()){
+%>
+
+<div class="container-fluid titlelogo" style="display: flex; justify-content: center; align-items: center; background: #eee;">
+    <a class="logo" href="index.html"><img src="Assets/sitelogo.png" style="padding: 10px;"></a>
+</div>
+<a href="studentView.html">Back</a>
+<hr class="new1">
+<style>
+    table{
+        width:100%;
+        table-layout: fixed;
+    }
+    th{
+        padding: 20px 15px;
+        text-align: left;
+        font-weight: 500;
+        font-size: 12px;
+        color: #fff;
+        text-transform: uppercase;
+        border: 2px solid rgba(255,255,255,0.3);
+    }
+
+
+    /* styles */
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+    body{
+        background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+        background: linear-gradient(to right, #25c481, #25b7c4);
+        font-family: 'Roboto', sans-serif;
+    }
+
+</style>
+
+<div class="tbl-header">
+    <table>
+        <thead>
+        <tr>
+            <th>Name: <%=rs.getString(3)%> </th>
+            <th>Class: <%=rs.getString(2)%></th>
+            <th>Roll No.: <%=rs.getString(1)%></th>
+        </tr>
+        </thead>
+        <thead>
+        <tr>
+            <th>Father Name: <%=rs.getString(4)%></th>
+            <th>Address: <%=rs.getString(5)%></th>
+            <th><a titlt="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;"><center><img src="Assets/print.png"></center></a></th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<style>
+    html {
+        font-family:arial;
+        font-size: 25px;
+    }
+
+    td {
+        border: 2px solid #726E6D;
+        padding: 15px;
+        color:black;
+        text-align:center;
+    }
+
+    thead{
+        font-weight:bold;
+        text-align:center;
+        background: #625D5D;
+        color:white;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .footer {
+        text-align:right;
+        font-weight:bold;
+    }
+
+    tbody >tr:nth-child(odd) {
+        background: #D1D0CE;
+    }
+
+</style>
+<head>
+    <hr class="new1">
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>SN</th>
+        <th>Subject</th>
+        <th>Full Marks</th>
+        <th>Pass Marks</th>
+        <th>Marks Obtain</th>
+        <th>Remarks</th>
+
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td >English</td>
+        <td>100</td>
+        <td>35</td>
+        <td><%=rs.getString(9)%></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td >Nepali</td>
+        <td>100</td>
+        <td>35</td>
+        <td><%=rs.getString(10)%></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td >Maths</td>
+        <td>100</td>
+        <td>35</td>
+        <td><%=rs.getString(11)%></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td >Science</td>
+        <td>100</td>
+        <td>35</td>
+        <td><%=rs.getString(12)%></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td >Social</td>
+        <td>100</td>
+        <td>35</td>
+        <td><%=rs.getString(13)%></td>
+        <td></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="2" class="footer">Total Marks</td>
+        <td>500</td>
+        <td>175</td>
+        <td><% int sum = rs.getInt(9) + rs.getInt(10) + rs.getInt(11) + rs.getInt(12) + rs.getInt(13);  out.println(sum);%></td>
+        <td></td>
+
+
+    </tr>
+    <tr>
+        <td colspan="2" class="footer">Percentage</td>
+<%--        <td colspan="3"><% PrintWriter out = response.getWriter(); out.println(sum/5);%></td>--%>
+        <td colspan="3"><% try {
+            int result = sum / 5;
+            out.print(result);
+        } catch (ArithmeticException e){
+            out.print("Error: Division by zero.");
+        }%></td>
+        <td></td>
+    </tr>
+</table>
+<hr class="new1">
+<h5 style="text-align: center;">Note: Any errors occur then contact Umesh Khatri.
+    Designed & Developed by Umeh Khatri</h5>
+<hr class="new1">
+<h5 style="text-align: center;">Copyright @ Umesh Khatri</h5>
+<hr class="new1">
+<br>
+</body>
+<%
+        }
+        else {
+            response.sendRedirect("errorStudentView.html");
+        }
+}
+        catch(Exception e)
+        {}
+%>
