@@ -15,7 +15,7 @@
     <link href="css/all.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/ruang-admin.css" rel="stylesheet">
-    <%--    <link href="css/style.css" rel="stylesheet">--%>
+        <link href="css/style.css" rel="stylesheet">
     <!-- You can include your script tag here if needed -->
 </head>
 <body id="page-top">
@@ -52,7 +52,7 @@
         </style>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <a class="button" href="index.html" style="text-decoration: none;">Log out</a>
+                <a class="button" href="index.jsp" style="text-decoration: none;">Log out</a>
             </ul>
         </div>
     </div>

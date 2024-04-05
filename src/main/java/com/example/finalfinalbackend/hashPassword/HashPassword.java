@@ -4,8 +4,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashPassword {
-    public static String HashPassword(String password){
-        String passwordtoHash = "Password";
+    public static String Hash(String password){
+        String passwordtoHash = password;
         String generatedPassword = null;
 
         try{

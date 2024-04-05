@@ -77,7 +77,7 @@
                             <h2 style="color: whitesmoke"> Reset Password </h2>
                             <div style=" width: 60%; margin: auto;"><br>
                                 <form action="Reset-Servlet" method="post" onsubmit=" return validateForm()">
-                                    <input type="email" placeholder="Email" id="email" name="email"
+                                    <input type="email" placeholder="Email" id="email" name="name"
                                            class="form-control" required>
                                     <br>
                                     <input type="password" oninput="validatePassword()" placeholder="Create password" id="password" name="password" class="form-control" required>

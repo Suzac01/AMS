@@ -20,7 +20,7 @@ public class Signup extends HttpServlet {
         String c = request.getParameter("semester");
         String d = request.getParameter("password");
 
-        String hashedPassword = HashPassword.HashPassword(d);
+        String hashedPassword = HashPassword.Hash(d);
 
         // Database connection setup
         try {
@@ -32,7 +32,8 @@ public class Signup extends HttpServlet {
             preparedStatement.setString(1, a);
             preparedStatement.setString(2, b);
             preparedStatement.setString(3, c);
-            preparedStatement.setString(4, hashedPassword); // Use hashed password
+            System.out.println("Password registered is : " + d );
+            preparedStatement.setString(4, hashedPassword);
             preparedStatement.executeUpdate();
 
             // Close the database connection
