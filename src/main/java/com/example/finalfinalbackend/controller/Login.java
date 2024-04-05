@@ -37,7 +37,13 @@ public class Login extends HttpServlet {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             // If a matching user is found, forward to Admin.jsp, otherwise redirect to err.html
+            // If a matching user is found, forward to Admin.jsp and set user information in the session
+
             if (resultSet.next()) {
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username); // Set the username in the session
+                System.out.println("Session" + " " +  username);
+                // You can set other attributes as needed
                 RequestDispatcher rd = request.getRequestDispatcher("Admin.jsp");
                 rd.forward(request, response);
             } else {
